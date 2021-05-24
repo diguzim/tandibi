@@ -22,6 +22,6 @@ FactoryBot.define do
   factory :bond do
     user_id { "" }
     friend_id { "" }
-    state { "MyString" }
+    state { "requesting" }
   end
 end

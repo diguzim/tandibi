@@ -19,5 +19,21 @@
 require 'rails_helper'
 
 RSpec.describe Place, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#valid?" do
+    it "should validate place type correctly" do
+      place = create(:place)
+      place.place_type = "unknown"
+      expect(place).not_to be_valid
+      [
+        "restaurant",
+        "coffee_shop",
+        "mall",
+        "hotel",
+        "other"
+      ].each do |type|
+        place.place_type = type
+        expect(place).to be_valid
+      end
+    end
+  end
 end
