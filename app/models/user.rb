@@ -23,6 +23,7 @@ class User < ApplicationRecord
   }
   validates :username, uniqueness: true, presence: true
   validates :first_name, presence: true
+
   has_many :posts
   has_many :bonds
   has_many :friends, through: :bonds
@@ -41,4 +42,12 @@ class User < ApplicationRecord
   -> { where("bonds.state = ?", Bond::FOLLOWING) },
   through: :inward_bonds,
   source: :user
+
+  before_save :ensure_proper_name_case
+
+  private
+
+  def ensure_proper_name_case
+    self.first_name = first_name.capitalize
+  end
 end
