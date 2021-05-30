@@ -23,11 +23,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   it "belongs to a user" do
-    user = User.create!(
-      first_name: "Rodrigo",
-      email: "rodrigo@example.com",
-      username: "rodrigo123"
-    )
+    user = create(:user)
 
     post = Post.new(
       postable: Status.new(text: "Whohoo!")
