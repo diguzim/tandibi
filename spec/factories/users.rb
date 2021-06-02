@@ -28,5 +28,6 @@ FactoryBot.define do
     last_name { SecureRandom.hex(10) }
     email { "#{SecureRandom.hex(10)}@example.org" }
     is_public { false }
+    password { "password" }
   end
 end
