@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
+
+  authenticate :user do
+    resources :timelines, only: [:index, :show]
+  end
 end
