@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
 
   authenticate :user do
-    resources :timelines, only: [:index, :show]
+    resources :timelines,
+      only: [:index, :show],
+      param: :username
   end
 end
