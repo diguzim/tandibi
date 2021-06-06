@@ -19,9 +19,10 @@
 class Sight < ApplicationRecord
   ACTIVITY_TYPES = [
     CHECKIN = "checkin",
-    CHECKOUT = "checkout"
+    CHECKOUT = "checkout",
   ].freeze
 
-  validates :activity_type, presence: true, inclusion: { in: ACTIVITY_TYPES }
   belongs_to :place
+  validates :activity_type, presence: true
+  validates :activity_type, inclusion: { in: ACTIVITY_TYPES }
 end
