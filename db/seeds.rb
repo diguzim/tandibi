@@ -2,14 +2,16 @@ user1 = User.create!(
   first_name: "Rodrigo",
   last_name: "Yamashita",
   email: "rodrigomarcondes2000@gmail.com",
-  username: "rodrigo"
+  username: "rodrigo",
+  password: "password"
 )
 
 user2 = User.create!(
   first_name: "Alberto",
   last_name: "Pasqualini",
   email: "pasqualini@pdt.org",
-  username: "pasqualini"
+  username: "pasqualini",
+  password: "password"
 )
 
 Bond.create(user: user1, friend: user2, state: Bond::FOLLOWING)
@@ -23,7 +25,7 @@ place = Place.create!(
 )
 
 post = Post.create!(
-  user: user1,
+  user: user2,
   postable: Status.new(
     text: "Aoooo! Que doidera"
   )
