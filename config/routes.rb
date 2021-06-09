@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   authenticate :user do
     resources :timelines,
-      only: [:index, :show],
+      only: %w[index show],
       param: :username
+
+    resources :posts, only: %w[create show]
   end
 end
